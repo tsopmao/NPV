@@ -1,0 +1,29 @@
+duration = int(input(print('Παρακαλώ εισάγετε τη διάρκεια σε έτη')))
+interest = float(input(print('Παρακαλώ εισάγετε το επιτόκιο ')))
+duration = duration*12
+interest = (interest/100) / 12
+instalment_one = float(input(print('Παρακαλώ εισάγετε τη μηνιαία δόση πρώτου έτους')))
+instalment_two = float(input(print('Παρακαλώ εισάγετε τη μηνιαία δόση δέυτερου έτους')))
+instalment_three = float(input(print('Παρακαλώ εισάγετε τη μηνιαία δόση τρίτου έτους')))
+instalment_four = float(input(print('Παρακαλώ εισάγετε τη μηνιαία δόση τέταρτου έτους')))
+instalment_n = float(input(print('Παρακαλώ εισάγετε τη μηνιαία δόση ν-οστού έτους εφόσον υπάρχει αλλιώς συμληρώστε 0')))
+year_n =int(input(print('Παρακαλώ εισάγετε  το ν-οστού έτους εφόσον υπάρχει αλλιώς συμληρώστε 0')))
+npv = 0
+for i in range (1,12+1):
+    npv = npv + instalment_one/(1+interest)**i
+for j in range (13, 24+1):
+    npv = npv + instalment_two/(1+interest)**j
+for k in range(25,36+ 1):
+    npv = npv + instalment_three / (1 + interest) ** k
+for h in range(25,48 + 1):
+        npv = npv + instalment_three / (1 + interest) ** h
+if instalment_n == 0 :
+        for l in range (49,duration) :
+            npv = npv + instalment_four / (1 + interest) ** l
+else :
+        for o in range (49,year_n*12 +1) :
+            npv=npv + instalment_n / (1 + interest) ** o
+        for p in range (year_n*12 +1,duration) :
+           npv=npv + instalment_n / (1 + interest) ** p
+
+print("Η καθαρή παρούσα αξία είναι:"+str(npv))
